@@ -25,3 +25,18 @@ Remember use this spring.cache.infinispan.config=infinispan.xml and his dependen
 7) Caffeine: Is a high performance Java based caching library. It also provides an in-memory cache.
 The spring boot automatically configures the CaffeineCacheManager if Caffeine is found in the classpath
 8) Simple: It is the default implementation. It configures a ConcurrentHashMap as a cache store if spring boot does not find any cache provider in the classpath
+
+@Cacheable
+Es una anotación a nivel de método. Se utiliza en el método cuya respuesta se va a almacenar en caché
+
+@CachePut
+Es una anotación a nivel de método. Se utiliza para actualizar el caché antes de invocar el método. Al hacer esto, el resultado se coloca en el caché y se ejecuta el método
+
+@CacheEvict
+Es una anotación a nivel de método. Se utiliza para eliminar los datos de la memoria caché. Cuando el método se anota con esta anotación, el método se ejecuta y la memoria caché se eliminará/desalojará.
+
+¿Podemos usar @CachePut y @Cacheable en el mismo método?
+La diferencia entre @Cacheable y @CachePut es que la anotación @Cacheable omite la ejecución del método, mientras que la anotación @CachePut ejecuta el método y coloca su resultado en la memoria caché.
+
+@Caching
+Permite múltiples anotaciones de almacenamiento en caché anidadas en el mismo método. Se utiliza cuando queremos utilizar varias anotaciones del mismo tipo.
